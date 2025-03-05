@@ -1,1 +1,0 @@
-{"name":"Local: 2979","url":"/Users/donghankim/study/blue-pot/dhk/2979.py","tests":[{"id":1741185663617,"input":"5 3 1\n1 6\n3 5\n2 8","output":"33"},{"id":1741185671728,"input":"10 8 6\n15 30\n25 50\n70 80","output":"480"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/donghankim/study/blue-pot/dhk/2979.py","group":"local","local":true}
