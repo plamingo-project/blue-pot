@@ -6,3 +6,6 @@
 - [ ] `lambda` 함수
 - [ ] list comprehension
 - [ ] itertools
+
+# 다시 풀기
+- [ ] 9996 : 히든 테케

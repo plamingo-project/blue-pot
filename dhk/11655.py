@@ -3,6 +3,8 @@
 lowers = "abcdefghijklmnopqrstuvwxyz"
 uppers = lowers.upper()
 
+# ord 활용해서 lowers, uppers 사용없이 범위로 풀이 가능
+
 
 def rot13(c):
     if c in lowers:
