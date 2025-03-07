@@ -12,24 +12,18 @@ N = int(input())
 for _ in range(N):
     stack = []
     target = input().rstrip()
-    # 홀수인 경우
-    if len(target) % 2 != 0:
-        pass
-    # A,B의 개수가 짝수가 아닌 경우
-    elif target.count("A") % 2 != 0 or target.count("B") % 2 != 0:
-        pass
-    else:
-        target_stack = list(target)
-        while len(target_stack) > 0:
-            tmp = target_stack.pop()
-            if len(stack) > 0:
-                if stack[-1] == tmp:
-                    lst = stack.pop()
-                else:
-                    stack.append(tmp)
+    for i in range(len(target)):
+        if stack:
+            if stack[-1] == target[i]:
+                stack.pop()
             else:
-                stack.append(tmp)
-        if len(stack) == 0:
-            rst += 1
+                stack.append(target[i])
+        # stack is empty
+        else:
+            stack.append(target[i])
+    # if stack is empty
+    if not stack:
+        rst += 1
 
 print(rst)
+# stack 하나로도 풀 수 있음
