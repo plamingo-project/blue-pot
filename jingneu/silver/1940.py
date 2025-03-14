@@ -19,6 +19,7 @@ while p1<p2:
     if arr[p1]+arr[p2] == M:
         ans+=1
         p1+=1
+        p2-=1 #같아지는 지점에서 p1+=1 했으니까 p2-=1 부터 탐색해야겠죠~~
     if arr[p1]+arr[p2] < M:
         p1+=1
     if arr[p1]+arr[p2] > M:
