@@ -20,22 +20,36 @@ for i in range(1, N + 1):
 
 
 def dfs(graph, i, visited):
+    # 방문처리
     visited[i] = True
-    print(i, end=' ')
+    # 방문 후 동작 수행
+    print(i, end=" ")
+    # 정점 i에 연결된 정점 확인
     for j in graph[i]:
         if not visited[j]:
             dfs(graph, j, visited)
+
+
+# def dfs(graph, i, visited):
+#     visited[i] = True
+#     print(i, end=' ')
+#     for j in graph[i]:
+#         if not visited[j]:
+#             dfs(graph, j, visited)
 
 # BFS 구현
 
 
 def bfs(graph, i, visited):
     queue = deque([i])
+    # i - 시작 지점
     visited[i] = True  # 큐에 넣을 때 방문 처리
 
     while queue:
         value = queue.popleft()
+        # queue에서 꺼내며 특정 동작 수행
         print(value, end=" ")
+
         for j in graph[value]:
             if not visited[j]:  # 방문하지 않은 노드만 추가
                 queue.append(j)
