@@ -25,6 +25,7 @@ def dfs(y, x, visited):
                 dfs(ny, nx, visited)
             # 1인 경우
             if adj[ny][nx] == 1:
+                # 방문 처리해야지 이것도!!
                 adj[ny][nx] = 2
                 visited[ny][nx] = True
 
