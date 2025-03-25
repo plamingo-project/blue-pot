@@ -10,3 +10,35 @@
 
 # 출력
 # 총 N개의 수 NGE(1), NGE(2), ..., NGE(N)을 공백으로 구분해 출력한다.
+
+from collections import deque
+queue = deque()
+ret = []
+
+# n < 1_000_000
+n = int(input())
+
+
+nums = list(map(int, input().split()))
+
+# 이중 루프 (시간초과)
+# O(n**2)
+
+for i in range(0, n-1):
+    skip = False
+    current = nums[i]
+    for ni in range(i+1, n):
+        if nums[ni] > current:
+            print(nums[ni], end=" ")
+            skip = True
+            break
+    if not skip:
+        print(-1, end=" ")
+
+print(-1, end="")
+
+
+# queue example
+
+# 3 -> queue[3]
+# 5 -> queue[3,5]
