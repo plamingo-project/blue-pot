@@ -1,12 +1,41 @@
 # 17298 오큰수(G4)
 
-# 문제
-# 크기가 N인 수열 A = A1, A2, ..., AN이 있다. 수열의 각 원소 Ai에 대해서 오큰수 NGE(i)를 구하려고 한다. Ai의 오큰수는 오른쪽에 있으면서 Ai보다 큰 수 중에서 가장 왼쪽에 있는 수를 의미한다. 그러한 수가 없는 경우에 오큰수는 - 1이다.
+# n < 1_000_000
+n = int(input())
 
-# 예를 들어, A = [3, 5, 2, 7]인 경우 NGE(1) = 5, NGE(2) = 7, NGE(3) = 7, NGE(4) = -1이다. A = [9, 5, 4, 8]인 경우에는 NGE(1) = -1, NGE(2) = 8, NGE(3) = 8, NGE(4) = -1이다.
+# 오큰수 찾아야하는 인덱스 담기
+stack = []
+# reversed
+# ret -> print(*ret, sep=" ")
+ret = [-1] * n
 
-# 입력
-# 첫째 줄에 수열 A의 크기 N(1 ≤ N ≤ 1, 000, 000)이 주어진다. 둘째 줄에 수열 A의 원소 A1, A2, ..., AN(1 ≤ Ai ≤ 1, 000, 000)이 주어진다.
 
-# 출력
-# 총 N개의 수 NGE(1), NGE(2), ..., NGE(N)을 공백으로 구분해 출력한다.
+nums = list(map(int, input().split()))
+
+# 1 ~ n-1
+for i in range(n):
+    # stack에 탐색해야할 idx 값이 있는 경우
+    # 반복적으로 오큰수를 지정해준다.
+    # 현재 탐색하는 값 (stack에 있는 index들보다 오른쪽의 값)이 큰 경우에는 오큰수로 지정해준다
+    while stack and nums[stack[-1]] < nums[i]:
+        idx = stack.pop()
+        ret[idx] = nums[i]
+    stack.append(i)
+
+print(*ret, sep=" ")
+
+# 이중 루프 (시간초과)
+# O(n**2)
+
+# for i in range(0, n-1):
+#     skip = False
+#     current = nums[i]
+#     for ni in range(i+1, n):
+#         if nums[ni] > current:
+#             print(nums[ni], end=" ")
+#             skip = True
+#             break
+#     if not skip:
+#         print(-1, end=" ")
+
+# print(-1, end="")
