@@ -23,7 +23,7 @@ while True:
             if arr[i][j] == 2:
                 arr[i][j] = 0
 
-    if tempcnt == 0:
+    if tempcnt == 0: #다 녹음
         break
     
     cnt = tempcnt
@@ -36,10 +36,10 @@ while True:
             nextY = curY+y
             if 0<=nextX<N and 0<=nextY<M and not visited[nextX][nextY]:
                 if arr[nextX][nextY] == 1:
-                    arr[nextX][nextY] = 2
-                if arr[nextX][nextY] == 0:
-                    q.append([nextX, nextY])
-                visited[nextX][nextY] = True
+                    arr[nextX][nextY] = 2 #melt
+                if arr[nextX][nextY] == 0: #외부 구멍 -> 탐색범위 추가
+                    q.append([nextX, nextY]) 
+                visited[nextX][nextY] = True 
 
 print(time)
 print(cnt)
